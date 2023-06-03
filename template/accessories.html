@@ -1,0 +1,355 @@
+{% extends "main.html" %}
+
+{% block content %}
+{%load static %}
+
+<!-- wrapper start -->
+<div class="wrapper">
+
+    <!-- accessories banner start -->
+    <section class="accessories-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>ACCESSORIES</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- accessories banner end -->
+
+    <!-- feature-area start -->
+    <section class="feature-area pt-4 ">
+        <div class="container">
+            <div class="row justify-content-between" id="rotate">
+                <div class="col-md-4 col-lg-4 block">
+                    <div class="feature-wrap">
+                        <div class="feature-image me-3">
+                            <img src="{% static '/images/feature-1.jpg' %}" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h5>FREE SHIPPING</h5>
+                            <p>Free shipping on all order</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 block">
+                    <div class="feature-wrap">
+                        <div class="feature-image me-3">
+                            <img src="{% static '/images/feature-2.webp' %}" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h5>ONLINE SUPPORT</h5>
+                            <p>Online support 24 hours a day</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 block">
+                    <div class="feature-wrap">
+                        <div class="feature-image me-3">
+                            <img src="{% static '/images/feature-3.webp' %}" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h5>MONEY RETURN</h5>
+                            <p>Back guarantee under 5 days</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 block">
+                    <div class="feature-wrap">
+                        <div class="feature-image me-3">
+                            <img src="{% static '/images/feature-1.webp' %}" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h5>FREE SHIPPING</h5>
+                            <p>Free shipping on all order</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 block">
+                    <div class="feature-wrap">
+                        <div class="feature-image me-3">
+                            <img src="{% static '/images/feature-2.webp' %}" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h5>ONLINE SUPPORT</h5>
+                            <p>Online support 24 hours a day</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 block">
+                    <div class="feature-wrap">
+                        <div class="feature-image me-3">
+                            <img src="{% static '/images/feature-3.webp' %}" alt="">
+                        </div>
+                        <div class="feature-content">
+                            <h5>MONEY RETURN</h5>
+                            <p>Back guarantee under 5 days</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- feature-area end -->
+
+
+    <!-- products start -->
+    <section class="product-area">
+        <div class="container">
+            {% for category in cat_product %}
+            {% for categoryproduct in category.0 %}
+
+
+            <div class="section-title text-center">
+                <h2 class="text-capitalize fw-bold">{{ categoryproduct.name }}</h2>
+                <p>{{ categoryproduct.description }}</p>
+            </div>
+            <div class="tab-content">
+                <div class="products-items">
+                    <div class="row" id="latti_{{forloop.counter}}">
+                        {% for catproduct in category.1 %}
+                        {% if forloop.counter <= 4 %} <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="products-wrap">
+                                <div class="products-image">
+                                    <a href="/product/{{ catproduct.id }}">
+                                        <img src="/media/{{ catproduct.pic2 }}" alt="">
+                                    </a>
+                                    <!-- <div class="product-action">
+                                    <a href="#">
+                                             <i class="fa-solid fa-plus"></i>
+                                       </a>
+                                    <a href="#">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                  </a>
+                                    <a href="#">
+                                     <i class="fa-regular fa-heart"></i>
+                                     </a>
+                                       </div> -->
+                                </div>
+                                <div class="products-content products-content-padding text-center">
+                                    <h4><a href="/product/{{ catproduct.id }}">{{ catproduct.name }} </a></h4>
+                                    <div class="product-rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star-half-stroke"></i>
+                                    </div>
+                                    <p class="card-text price">
+                                        <span class="fs-4 text-danger fw-bold me-2">₹{{ catproduct.mrp }}</span>
+                                        <strike style="font-size:17px; font-weight: 600;color: #333">₹{{ catproduct.sellingprice }}</strike>
+                                    </p>
+                                    <form action="/cart/add/{{catproduct.id}}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button class="card-hover" >Add to cart</button><br>                                    </form>
+                                </div>
+                            </div>
+                    </div>
+                    {% endif %}
+                    {%endfor%}
+                    <div class="w-100 text-center mb-1">
+                        <a href="{% url 'catalog' url=categoryproduct.url %}" class="card-hover">View More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {%endfor%}
+        <!-----------start------------------>
+        <script type="text/javascript">
+            $('#latti_{{forloop.counter}}').slick({
+                dots: true,
+                arrow: false,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            infinite: true,
+                            dots: true,
+                            arrow: false
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2,
+                            arrow: false
+
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            arrow: false
+                        }
+                    }
+                    // You can unslick at a given breakpoint now by adding: 
+                    // settings: "unslick" 
+                    // instead of a settings object 
+                ]
+            }); 
+        </script>
+        <!--------------end------------->
+</div>
+</section>
+<!-- product section end -->
+</div>
+<!-- wrapper end -->
+<!---Bootstrap 5 js-->
+
+<!----------------------------->
+
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#rotate').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+
+
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#lati').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#company-brand-logo').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+{% endblock %}

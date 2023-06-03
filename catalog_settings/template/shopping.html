@@ -1,0 +1,127 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+<section class="product-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 product-banner-heading">
+                <h1>Product list</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- products start -->
+<section class="product-block">
+    <div class="container">
+        <!-- product side-bar list start -->
+        <div class="row py-5">
+            <div class="col-md-3">
+                <div class="side-bar">
+                    <h2 class="m-3">Best selling</h2>
+                    {% for category in categories %}
+                    <div class="card m-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4 p-2 ">
+                                <a href="{% url 'catalog' url=category.url %}"> <img src="/media/{{category.pic}}"
+                                        class="card-img-top" alt="..."></a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="card-text title"><a
+                                            href="{% url 'catalog' url=category.url %}">{{category.name}}</a></p>
+
+                                    <h5 class="product-rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </h5>
+                                    <a href="{% url 'catalog' url=category.url %}">View</a>
+                                    <!--p class="card-text price">
+                                        	<small class="text-body-secondary">$8.0</small>
+                                        </p-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+            <!-- product side-bar list end -->
+            <!-- product right -->
+            <div class="col-md-6 main-block p-0 m-0">
+                <div class="main-card-block">
+                    {% for shopping in prd %}
+                    <div class="card m-3">
+                        <div class="row g-0 ">
+                            <div class="col-md-4 p-2 img-block">
+                                <a href="/product/{{ shopping.id }}"><img src="/media/{{ shopping.pic1 }}"
+                                        class="img-fluid rounded-start" alt="{{shopping.name}}"></a>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="card-text title fs-3 fw-bold mb-1"><a class="text-dark"
+                                            href="/product/{{ shopping.id }}">{{shopping.name}}</a></p>
+                                    <!-- <p class="">{{shopping.name}}</p> -->
+
+                                    <h5 class="product-rating">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </h5>
+
+                                    <p class="card-text price">
+                                        <span class="fs-4 text-danger fw-bold me-2">₹{{shopping.mrp}}</span>
+                                        <strike
+                                            style="font-size:17px; font-weight: 600;color: #333">₹{{shopping.sellingprice}}</strike>
+                                    </p>
+                                    <p class="product-bio">{{ shopping.description | safe }}</p>
+                                    <!--a href="/ProductDetails/{{shopping.id}}">View Product</a-->
+                                    <!--a href="#" class="btn btn-primary">Add to cart</a-->
+                                    <form action="/cart/add/{{shopping.id}}" method="post">
+                                        {% csrf_token %}
+                                        {{ cart_product_form }}
+                                        <button class="card-hover">Add to cart</button><br>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor%}
+
+                    <div class="col-md-12 text-center">
+                        <div class="pagination d-flex justify-content-center  mb-2">
+                            <span class="page-item page-link-item d-flex gap-3 align-items-center">
+                                {% if prd.has_previous %}
+                                <a href="?page=1" class="page-link text-decoration-none">&laquo; first</a>
+                                <a href="?page={{ prd.previous_page_number }}"
+                                    class="page-link text-decoration-none">previous</a>
+                                {% endif %}
+
+
+
+                                {% if prd.has_next %}
+                                <a href="?page={{ prd.next_page_number }}"
+                                    class="page-link text-decoration-none card-hover">next</a>
+                                <a href="?page={{ prd.paginator.num_pages }}"
+                                    class="page-link text-decoration-none card-hover">last &raquo;</a>
+                                {% endif %}
+                            </span>
+                        </div>
+                        <span class="current  " class="page-link link">
+                            Page {{ prd.number }} of {{ prd.paginator.num_pages }}.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- product right end -->
+    </div>
+</section>
+<!-- product end -->
+
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends "main.html" %}
+{% block content %}
+<!-- --------------------contact banner start------------------ -->
+<section class="contact-banner">
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-md-12 contact-banner-heading">
+                <h1>contact us</h1>
+            </div>
+        </div> -->
+    </div>
+</section>
+<!-- --------------------contact banner end------------------ -->
+<section class="contact-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 contact-form-heading">
+                <h4 class="light-heading">Write a Message</h4>
+                <h2>We're always here to <br> help you</h2>
+            </div>
+        </div>
+        <div id="contact_message"> </div>
+        <div class="form-block">
+            <form id="contact_info" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="name" placeholder="Your Name" aria-label=""
+                            required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email" aria-label=""
+                            required>
+                    </div>
+                </div>
+                <div class="row pt-4">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="subject" placeholder="Subject" aria-label=""
+                            required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="tel" class="form-control" name="phone" placeholder="Phone" aria-label="" required>
+                    </div>
+                </div>
+                <div class="row pt-4">
+                    <div class="mb-3">
+                        <textarea class="form-control " name="message" id="exampleFormControlTextarea1"
+                            placeholder="Message" rows="3"></textarea>
+                    </div>
+                </div>
+                <button type="submit" name="submit" class="card-hover">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="map-area">
+    <div class="container">
+        <div class="row contact-info pt-4">
+            <div class="col-md-3 contact-about">
+                <p>have questions?</p>
+                <a href="#"><i class="fa-solid fa-phone"></i> +92 (8800) 68-8909</a>
+            </div>
+            <div class="col-md-3 contact-about">
+                <p>Write email</p>
+                <a href="mailto: info@example.com"><i class="fa-solid fa-envelope"></i> info@example.com</a>
+            </div>
+            <div class="col-md-3 contact-about">
+                <p>visit store</p>
+                <a href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1" class="disable"><i class="fa-solid fa-location-dot"></i> c-133, phase-8, industrial area,
+                    mohali (punjab)</a>
+            </div>
+            <div class="col-md-3 contact-about">
+                <p>Follow us</p>
+                <div class="contact-links">
+                    <a href="https://twitter.com/amrican_fashion"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/Amrican-Fashion-103311982777469"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/amrican_fashion/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://in.pinterest.com/amrican_fashion/"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 contact-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.2660005880293!2d76.70868407467573!3d30.710921586688038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fee8acf5370cd%3A0x45d0b685220ae577!2sPlot%20No.%20C%2C%20133%2C%20Phase-8%2C%20Industrial%20Area%2C%20Sector%2074%2C%20Sahibzada%20Ajit%20Singh%20Nagar%2C%20Punjab%20160055!5e0!3m2!1sen!2sin!4v1681998395863!5m2!1sen!2sin"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+
+</section>
+
+<script>
+
+    $("#contact_info").submit(function (event) {
+        event.preventDefault();
+        serializedata = $(this).serializeArray();
+        $.ajax({
+            url: '{% url 'contact-user' %}',
+            type: 'POST',
+            data: serializedata,
+            success: function (data) {
+                $("#contact_message").html(`<div class='alert alert-success'>${data}</div>`);
+                $('#contact_info')[0].reset();
+            }
+   })
+})
+
+</script>
+
+{% endblock %}

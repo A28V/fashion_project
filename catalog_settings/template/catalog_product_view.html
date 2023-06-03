@@ -1,0 +1,295 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+<div class="col-md-12 main-block p-0 m-0">
+    {% for shopping in prd %}
+    <div class="product-detail">
+        <div class="container">
+            <div class="row mian-detail-block">
+                <div class="col-md-6 col-lg-6 product-img-block product-img-block d-flex justify-content-center">
+                    <div class="product-imga">
+                        <img src="/media/{{ shopping.pic1 }}" alt="product-detail">
+                        <span class="product-badge">{{ shopping.tag }}</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 ">
+                    <div class="product-content">
+                        <h3><a href="/product/{{ shopping.id }}">{{shopping.name}}</a></h3>
+                        <div class="prize">
+                            <span class="new">₹{{shopping.sellingprice}}</span>
+                            <span class="old text-decoration-line-through">₹{{shopping.mrp}}</span>
+                        </div>
+                        <div class="available">{{shopping.available}}</div>
+                        <div class="product-rating d-flex align-center gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="space">|</span>
+                            <span class="review">3 Review</span>
+                        </div>
+                        <p>{{ shopping.description | safe }}</p>
+                        <form action="/cart/add/{{shopping.id}}" method="post">
+                            {% csrf_token %}
+                            {{ cart_product_form }}
+                            <button class="card-hover">Add to cart</button><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor%}
+
+</div>
+<!-- review block start -->
+<!--section class="review-block bt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 review-left">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                            aria-selected="true">Description</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                            type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Additional
+                            information</button>
+                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                            type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Reviews
+                            (3)</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <p>Pellentesque orci lectus, bibendum iaculis aliquet id, ullamcorper nec ipsum. In
+                            laoreet ligula vitae tristique viverra. Suspendisse augue nunc, laoreet in arcu ut,
+                            vulputate malesuada justo. Donec porttitor elit justo, sed lobortis nulla interdum
+                            et. Sed lobortis sapien ut augue condimentum, eget ullamcorper nibh lobortis. Cras
+                            ut bibendum libero. Quisque in nisl nisl. Mauris vestibulum leo nec pellentesque
+                            sollicitudin.</p>
+                        <p>Pellentesque lacus eros, venenatis in iaculis nec, luctus at eros. Phasellus id
+                            gravida magna. Maecenas fringilla auctor diam consectetur placerat. Suspendisse non
+                            convallis ligula. Aenean sagittis eu erat quis efficitur. Maecenas volutpat erat ac
+                            varius bibendum. Ut tincidunt, sem id tristique commodo, nunc diam suscipit lectus,
+                            vel</p>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="card-body">
+                            <ul>
+                                <li>
+                                    <span class="text-dark">Weight</span>
+                                </li>
+                                <li>
+                                    <span class="text-dark">Dimensions</span>
+                                </li>
+                                <li>
+                                    <span class="text-dark">Materials</span>
+                                </li>
+                                <li>
+                                    <span class="text-dark">Other Info</span>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <span>400 g</span>
+                                </li>
+                                <li>
+                                    <span>10 x 10 x 15 cm </span>
+                                </li>
+                                <li>
+                                    <span>60% cotton, 40% polyester</span>
+                                </li>
+                                <li>
+                                    <span li>American heirloom jean shorts pug seitan letterpress</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="review-wrapper">
+                            <div class="single-view d-flex">
+                                <div class="review-img">
+                                    <img src="{% static '/images/client-1.webp' %}" alt="">
+                                </div>
+                                <div class="review-content position-relative ms-4">
+                                    <p>“In convallis nulla et magna congue convallis. Donec eu nunc vel justo
+                                        maximus posuere. Sed viverra nunc erat, a efficitur nibh”</p>
+                                    <div class="review-wrap d-flex justify-content-between align-items-center">
+                                        <div class="name">
+                                            <h5>Stella McGee</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-view d-flex">
+                                <div class="review-img">
+                                    <img src="{% static '/images/client-2.webp' %}" alt="">
+                                </div>
+                                <div class="review-content position-relative ms-4">
+                                    <p>“In convallis nulla et magna congue convallis. Donec eu nunc vel justo
+                                        maximus posuere. Sed viverra nunc erat, a efficitur nibh”</p>
+                                    <div class="review-wrap d-flex justify-content-between align-items-center">
+                                        <div class="name">
+                                            <h5>Stella McGee</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single-view d-flex">
+                                <div class="review-img">
+                                    <img src="{% static '/images/client-3.webp' %}" alt="">
+                                </div>
+                                <div class="review-content position-relative ms-4">
+                                    <p>“In convallis nulla et magna congue convallis. Donec eu nunc vel justo
+                                        maximus posuere. Sed viverra nunc erat, a efficitur nibh”</p>
+                                    <div class="review-wrap d-flex justify-content-between align-items-center">
+                                        <div class="name">
+                                            <h5>Stella McGee</h5>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="img-block">
+                    <img src="{% static '/images/banner-4-product-detail.webp' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section-->
+
+<!-- review block end -->
+
+
+
+
+
+<div class="product-detail">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2 class="text-capitalize fw-bold">Related products</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+        <div class="row" id="product-detail1">
+            {% for shopping in product %}
+            {% if shopping.id != product_id %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="product-img">
+                        <img src="/media/{{ shopping.pic2 }}" alt="product-detail">
+                    </div>
+                    <div class="product-content text-center">
+                        <div class="card-body">
+                            <h3><a class="text-dark pt-5" href="/product/{{ shopping.id }}">{{shopping.name}}</a></h3>
+                            <div class="prize mb-3">
+                                <span class="new">₹{{shopping.sellingprice}}</span>
+                                <span class="old text-decoration-line-through ">₹{{shopping.mrp}}</span>
+                            </div>
+                            <!-- <div class="product-rating d-flex align-center gap-1">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <span class="space">|</span>
+                                    <span class="review">3 Review</span>
+                                </div> -->
+                            <!-- <p>{{ shopping.description }}</p> -->
+                            <form action="/cart/add/{{shopping.id}}" method="post" class="view-quantity">
+                                {% csrf_token %}
+                                <!-- {{ cart_product_form }} -->
+                                <input type="hidden" name="quantity" value="1">
+                                <button class="card-hover">Add to cart</button><br>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+            {% endfor%}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--  products detail start-->
+
+<script type="text/javascript">
+    $('#product-detail1').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+
+
+{% endblock %}

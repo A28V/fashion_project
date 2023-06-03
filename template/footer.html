@@ -1,0 +1,145 @@
+{% load static %}
+<footer style="background-color: #96dee3d1">
+    <div class="container">
+        <div class="row main_footer ">
+            <div class="col-lg-4 left-sec">
+                <div class="row">
+                    <div class="col-lg-12 col-md-8">
+                        <div class="row footer-logo-tablet">
+                            <div class="col-lg-4 footer-logo text-center">
+                                <a href="{% url 'home' %}"><img src="{% static '/images/header-logo.png' %}" alt=""></a>
+                            </div>
+                            <p>We offer a wide range of stylish and trendy clothing, shoes, and accessories for men,
+                                women, and children. Our collection is carefully curated to bring you the latest fashion
+                                trends from around the world.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-4">
+                        <div class="row social">
+                            <h3>social media</h3>
+                            <div class="contact-links">
+                                <a href="https://twitter.com/amrican_fashion"><i
+                                        class="fa-brands fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/Amrican-Fashion-103311982777469"><i
+                                        class="fa-brands fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/amrican_fashion/"><i
+                                        class="fa-brands fa-instagram"></i></a>
+                                <a href="https://in.pinterest.com/amrican_fashion/"><i
+                                        class="fa-brands fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 ">
+                <div class="main_contact d-flex justify-content-between">
+                    <div class="contact">
+                        <h3>want to call us?</h3>
+                        <div class="block d-flex">
+                            <div class="icon-block">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="contact_block">
+                                <h4><a href="#">phone</a></h4>
+                                <p><a href="#">+012 345 678 102</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <h3>want to email us?</h3>
+                        <div class="block d-flex">
+                            <div class="icon-block">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="contact_block">
+                                <h4><a href="mailto: info@example.com">email</a></h4>
+                                <p><a href="mailto: info@example.com">info@example.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <h3>want to visit us?</h3>
+                        <div class="block d-flex">
+                            <div class="icon-block">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="contact_block">
+                                <h4><a
+                                        href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1">location</a>
+                                </h4>
+                                <p><a
+                                        href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1">c-133,
+                                        phase-8 mohali (punjab)</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="row">
+                    <!-- <div class="col-md-4">
+                        <div class="footer-widget">
+                            <div class="footer-title">
+                                <h3>Categories</h3>
+                            </div>
+                            <div class="footer-list">
+                                <ul>
+                                    <li><a href="./index.html">Men</a></li>
+                                    <li><a href="./shop-shirts.html">Shirt</a></li>
+                                    <li><a href="./shop-shirts.html">Jeins</a></li>
+                                    <li><a href="./accessories.html">Watch</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-md-4">
+                        <div class="footer-widget">
+                            <div class="footer-title">
+                                <h3>Account</h3>
+                            </div>
+                            <div class="footer-list">
+                                <ul>
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'reg' %}">Register</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-widget">
+                            <div class="footer-title">
+                                <h3>Useful Link</h3>
+                            </div>
+                            <div class="footer-list">
+                                <ul>
+                                    <li><a href="{% url 'faq' %}">FAQs</a></li>
+                                    <li><a href="{% url 'aboutus' %}">about us</a></li>
+                                    <li><a href="{% url 'terms' %}">Terms & Conditions</a></li>
+                                    <li><a href="{% url 'contact' %}">contact us</a></li>
+                                    <li><a
+                                            href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1">Store
+                                            location</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="map">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.2661640175684!2d76.70974645460007!3d30.71091699123379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fee8acf5370cd%3A0x45d0b685220ae577!2sPlot%20No.%20C%2C%20133%2C%20Phase-8%2C%20Industrial%20Area%2C%20Sector%2074%2C%20Sahibzada%20Ajit%20Singh%20Nagar%2C%20Punjab%20160055!5e0!3m2!1sen!2sin!4v1684040078293!5m2!1sen!2sin"
+                                width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="copyright">
+        <div class="container">
+            <div class="Copy text-center">
+                Copyright <a href="#">Amciran Fashion</a> © 2023. All Right Reserved..
+            </div>
+        </div>
+    </div>
+</footer>

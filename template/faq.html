@@ -1,0 +1,150 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+
+<style>body {
+ margin: 0px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+.faq-section {
+	font-family: "Poppins", sans-serif;
+  background: url(../static/images/faq.png) center/cover;
+  padding: 90px 0;
+  text-align: center;
+  background-position-y: 18%;
+  box-shadow: inset 0px 0px 0px 435px #00000085;
+  height: 42rem;
+}
+
+.faq-section .faq_left_half_circle {
+ position: absolute;
+ left: 80px;
+}
+
+.faq-section .faq_left_half_circle img {
+ position: relative;
+ top: 140px;
+}
+
+.faq-section h3 {
+ color: #fff;
+ text-align: center;
+ padding-bottom: 50px;
+ font-size: 30px;
+ margin: 0px;
+}
+
+.faq-section .faq-accordions {
+ max-width: 760px;
+ margin: 0 auto;
+}
+
+.faq-section .faq-accordions .accordion-row {
+ padding-top: 15px;
+ padding-bottom: 15px;
+ border-bottom: 1px solid #fff;
+ cursor: pointer;
+}
+
+.faq-section .faq-accordions .accordion-row .title {
+ text-align: left;
+ color: #fff;
+ font-size: 22px;
+ font-weight: 500;
+ position: relative;
+ padding-right: 30px;
+}
+
+.faq-section .faq-accordions .title:after {
+ content: '';
+ position: absolute;
+ border-left: #fff 2px solid;
+ border-bottom: #fff 2px solid;
+ right: 10px;
+ top: 8px;
+ -moz-transition: all .5s linear;
+ -webkit-transition: all .5s linear;
+ transition: all .5s linear;
+ width: 10px;
+ height: 10px;
+ z-index: 1;
+ transform: rotate(-45deg);
+}
+
+.faq-section .faq-accordions .title.open:after {
+ transform: rotate(135deg);
+ top: 14px;
+}
+
+.faq-section .faq-accordions .accordion-row .content {
+ text-align: left;
+ color: #fff;
+ font-size: 16px;
+ line-height: 30px;
+ overflow: hidden;
+ height: 0px;
+ transition: 0.5s all;
+}
+
+.faq-section .faq-accordions .accordion-row .open + .content {
+ height: auto;
+ overflow: initial;
+ padding: 20px 0px;
+}
+@media(max-width:1200px) {
+.faq-section .faq-accordions .accordion-row .title {
+    font-size: 18px;
+}
+}</style>
+
+
+
+<section class="faq-section">
+	<div class="fix-wrap">
+		<div class="section-header">
+			<h3 class="section-title">FAQs</h3>
+		</div>
+		<div class="faq-accordions">
+			<div class="accordion-row">
+				<div class="title">How can I sign up for an account on your website?</div>
+				<div class="content">Signing up for an account on our website is easy. Look for the "Sign Up" or "Create Account" button, typically located in the top-right corner of the webpage. Click on it, and you'll be directed to a registration page where you can enter your information to create a new account.
+				</div>
+			</div>
+			<div class="accordion-row">
+				<div class="title"> What information do I need to provide when creating an account?</div>
+				<div class="content">When creating an account, you'll typically need to provide your , email address, and create a secure password.
+				</div>
+			</div>
+			<div class="accordion-row">
+				<div class="title">Is there a cost associated with signing up for an account?</div>
+				<div class="content">No, signing up for an account on our website is completely free of charge. There are no fees or subscription costs associated with creating an account.</div>
+			</div>
+			<div class="accordion-row">
+				<div class="title"> Can I access my account from multiple devices?</div>
+				<div class="content">Yes, you can usually access your account from multiple devices. Whether you're using a computer, smartphone, or tablet, you can log in to your account as long as you have an internet connection and the correct login credentials.
+				</div>
+			</div>
+			<div class="accordion-row">
+				<div class="title">How does the checkout process work on your website?</div>
+				<div class="content">Add desired items to your cart, provide shipping information, select a payment method, and confirm the purchase.
+				</div>
+			</div>
+		</div>
+	</div>
+</section><script>let items = document.querySelectorAll(".faq-section .faq-accordions .title");
+items.forEach(function (t) {
+t.addEventListener("click", function (e) {
+	items.forEach(function (e) {
+	e !== t || e.classList.contains("open")
+		? e.classList.remove("open")
+		: e.classList.add("open");
+	});
+});
+});</script>
+
+
+
+
+{% endblock %}

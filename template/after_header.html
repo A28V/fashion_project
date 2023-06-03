@@ -1,0 +1,53 @@
+{% load static %}
+<header style="background-color: #B6E7EB;">
+    <div class="container">
+        <!-- navbar start -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="{% url 'home' %}"><img class="logo"
+                    src="{% static '/images/header-logo.png' %}" alt="logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item ps-4">
+                        <a id="homepage" class="nav-link" aria-current="page" href="{% url 'home' %}">HOME</a>
+                    </li>
+                    <li class="nav-item dropdown ps-4">
+                        <a class="nav-link dropdown-toggle" href="{% url 'shop' %}">
+                            SHOP
+                        </a>
+                    </li>
+                    <li class="nav-item ps-4">
+                        <a class="nav-link" href="{% url 'accessories' %}">ACCESSORIES</a>
+                    </li>
+                    <li class="nav-item ps-4">
+                        <a class="nav-link" href="{% url 'blog' %}">BLOG</a>
+                    </li>
+                    <li class="nav-item ps-4">
+                        <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+                    </li>
+                    <li class="nav-item ps-4">
+                        <a class="nav-link" href="{% url 'aboutus' %}">ABOUT US</a>
+                    </li>
+                </ul>
+                <div class="links d-flex gap-3 align-center">
+                    <div class="cart-wrap">
+                        <a href="{% url 'cart_detail' %}"><i class="fa-solid fa-cart-shopping fs-5  text-dark"></i>
+                            {% with total_items=cart|length %}
+                            {% if cart|length > 0 %}
+                            {{ total_items }}
+                            {% else %}
+                            0
+                            {% endif %}
+                            {% endwith %}
+                        </a>
+                    </div>
+                    <a class="header-hover" href="{% url 'logout' %}" role="button">Logout</a>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar end -->
+    </div>
+</header>

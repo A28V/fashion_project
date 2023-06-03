@@ -1,0 +1,395 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+<!-- header end -->
+<!-- team banner start -->
+<div class="team-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-banner">
+                <img src="{% static '/images/about-us-banner.avif' %}" alt="">
+                </div>
+            </div>
+            <div class="col-md-6 heading d-flex text-center align-center">
+                <h2>about us</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- team banner end -->
+<!-- feature-area start -->
+<section class="feature-area pt-4 ">
+    <div class="container">
+        <div class="row justify-content-between" id="rotate">
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-1.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>FREE SHIPPING</h5>
+                        <p>Free shipping on all order</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-2.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>ONLINE SUPPORT</h5>
+                        <p>Online support 24 hours a day</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-3.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>MONEY RETURN</h5>
+                        <p>Back guarantee under 5 days</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-1.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>FREE SHIPPING</h5>
+                        <p>Free shipping on all order</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-2.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>ONLINE SUPPORT</h5>
+                        <p>Online support 24 hours a day</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-3.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>MONEY RETURN</h5>
+                        <p>Back guarantee under 5 days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- feature-area end -->
+<!-- about us start -->
+<div class="about-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 about-block-section">
+                <p><span>Welcome</span> to our online fashion store! We are a team of passionate individuals who
+                    are dedicated to bringing you the latest trends and styles in fashion.<br><br>
+
+                    Our story began with a simple idea: to create a platform where people can easily access
+                    high-quality and affordable fashion pieces. We believe that everyone deserves to look and
+                    feel their best, regardless of their budget or background.<br><br>
+
+                    Our team is composed of experienced fashion experts who are constantly on the lookout for
+                    the latest trends and styles. We carefully curate our collection to ensure that we only
+                    offer the best quality products that are both stylish and durable.<br><br>
+
+
+                    Thank you for choosing our online fashion store. We hope you enjoy shopping with us and find
+                    something that inspires your style!</p>
+
+            </div>
+            <div class="col-md-6 image">
+                <img src="{% static '/images/about-img-banner.avif' %}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- about us end -->
+
+<!-- team  start -->
+<div class="team">
+    <div class="container">
+        <div class="row">
+            <div class="heading text-center">
+                <h2>Team Members</h2>
+                <p class="mb-4">A team member is an individual who belongs to a team and contributes to the team's goals and objectives.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="content-block border">
+                    <a href="{% url 'team' %}"><img src="{% static '/images/team-1.webp' %}" alt=""></a>
+                    <h4><a href="{% url 'team' %}"> Mr.Mike Banding</a></h4>
+                    <p>Manager</p>
+                </div>  
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="content-block border">
+                    <a href="{% url 'team' %}"><img src="{% static '/images/team-2.webp' %}" alt=""></a>
+                    <h4><a href="{% url 'team' %}">Ms.Sophia</a></h4>
+                    <p>Designer</p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="content-block border">
+                    <a href="{% url 'team' %}"><img src="{% static '/images/team-3.webp' %}" alt=""></a>
+
+                    <h4><a href="{% url 'team' %}">Mr.Peter Pan</a></h4>
+                    <p>Developer </p>
+                </div>
+            </div>
+            <div class="col-md-3 text-center">
+                <div class="content-block border">
+                    <a href="{% url 'team' %}"><img src="{% static '/images/team-4.webp' %}" alt=""></a>
+                    <h4><a href="{% url 'team' %}">Mr.John Lee</a></h4>
+                    <p>Chairmen </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- team end -->
+
+<!-- testimonial-area start -->
+<section class="testimonial-area">
+    <div class="container">
+        <div class="row" id="testimonial">
+            <div class="col-md-12 text-center about-block">
+                <img src="{% static '/images/testi-1.webp' %}" alt="img">
+                <div class="contant text-center">
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                        labor et dolore magna aliqua ex commo consequat irure "</p>
+                    <span>Tayeb Rayed</span>
+                </div>
+            </div>
+            <div class="col-md-12 text-center about-block">
+                <img class="rounded-circle" src="{% static '/images/client-1.webp' %}" alt="img">
+                <div class="contant text-center">
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                        labor et dolore magna aliqua ex commo consequat irure "</p>
+                    <span>Tayeb Rayed</span>
+                </div>
+            </div>
+            <div class="col-md-12 text-center about-block">
+                <img class="rounded-circle photo" src="{% static '/images/client-2.webp' %}" alt="img">
+                <div class="contant text-center">
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                        labor et dolore magna aliqua ex commo consequat irure "</p>
+                    <span>Tayeb Rayed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- testimonial-area end -->
+
+<!-- video area start -->
+<section class="video-area">
+    <div class="container">
+        <div class="bg-area">
+            <div class="video-content">
+                <h3>Summer 2022</h3>
+                <div class="video-icon">
+                    <a href="https://youtu.be/x7KeNcjBGIY?t=4"><i class="fa-regular fa-circle-play"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ------------------------------end------------------ -->
+
+<!-- company brand logo start-->
+<section class="brand-logo">
+    <div class="container">
+        <div class="row justify-content-between" id="company-brand-logo">
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-1.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-2.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-3.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-4.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-5.webp' %}p" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-1.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-2.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-3.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-4.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-5.webp' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ----------------------------------------end----------------------------------------------------------------->
+</div>
+<!-- wrapper end -->
+
+
+
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#rotate').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#company-brand-logo').slick({
+        dots: false,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#testimonial').slick({
+        dots: false,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+{% endblock %}

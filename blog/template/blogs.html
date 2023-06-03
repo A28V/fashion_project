@@ -1,0 +1,90 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+{% endfor %}
+{% endif %}
+<section class="blog-main">
+    <div class="container">
+        <div class="row blog">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="blog-body">
+                            {%for getcurrent in blog%}
+                            <div class="blog-image">
+                                <img src="/media/{{getcurrent.pic}}" alt="">
+                            </div>
+                            <div class="blog-detail">
+                                <h2>{{getcurrent.name}}</h2>
+                                {{getcurrent.content | safe}}
+                            </div>
+                            {%endfor%}
+                            <div class="row">
+                                <div class="col-md-12 mt-5">
+                                    <h2>Comment's</h2>
+                                    {% for blogscomments in blog_comment %}
+                                    <div class="comment">
+                                        <div class="comment-image">
+                                            <i class="fa-regular fa-user"></i>
+                                        </div>
+                                        <div class="comment-detail">
+                                            <h5>{{blogscomments.name}}</h5>
+                                            <p>{{blogscomments.comment}}</p>
+                                        </div>
+                                    </div>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                            <form class="blog-form" method="post" action="{% url 'blog-comments' %}">
+                                {% csrf_token %}
+                                <h2>leave a Comment</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" placeholder="Your Name" name="name"
+                                            required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" placeholder="Your Email" name="email"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" placeholder="Write a comment..." name="comment"
+                                            id="" cols="30" rows="10" required></textarea>
+                                    </div>
+                                </div>
+                                <input type="hidden" class="urlkey" name="urlkey" value="{{url}}">
+
+                                {%for getcurrent in blog%}
+                                <input type="hidden" name="blog_id" value="{{getcurrent.id}}">
+                                {%endfor%}
+
+                                <button type="submit" class="card-hover mt-4">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 ">
+                <div class="latest-blog">
+                    <h5>latest posts</h5>
+                    {% for latestblog in topthreeblog %}
+                    <div class="blog_upcomig">
+                        <div class="upcoming-img">
+                            <a href="/blog/{{latestblog.key}}"><img src="/media/{{latestblog.pic}}" alt=""></a>
+                        </div>
+                        <div class="upcoming-content">
+                            <p><a href="/blog/{{latestblog.key}}">{{latestblog.name}}</a></p>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

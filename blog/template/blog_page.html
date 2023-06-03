@@ -1,0 +1,38 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+{% endfor %}
+{% endif %}
+<section class="blog-area">
+    <div class="container">
+        <div class="section-title text-center pb-45">
+            <h2 class="text-capitalize fw-bold">All Blog</h2>
+            <p>A blog is a website or an online platform where an individual or a group of individuals regularly post articles, opinions, or information on a specific topic or theme. </p>
+        </div>
+        <div class="row">
+            {%for getblog in allblog%}
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-wrap">
+                    <div class="blog-img">
+                        <a href="blog/{{getblog.key}}">
+                            <img src="/media/{{ getblog.pic }}" alt="">
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="blog/{{getblog.key}}">{{getblog.name}}</a></h3>
+                        <div class="blog-meta">
+                            <a href="blog/{{getblog.key}}"><i class="fa-regular fa-user"></i> By Admin</a>
+                            <a href="blog/{{getblog.key}}"><i class="fa-regular fa-clock"></i> {{ getblog.created_at|date:"M d, Y" }} </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+           
+        </div>
+    </div>
+</section>
+{% endblock %}

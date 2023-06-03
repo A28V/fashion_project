@@ -1,0 +1,510 @@
+{% extends "main.html" %}
+{% block content %}
+{% load static %}
+<!-- banner start -->
+<section class="single-silder" style="background-color: #B6E7EB;">
+    <div class="container">
+        <div class="row mian-silder">
+            <div class="col-xl-6 col-md-6 single-silder-image">
+                <div class="silder-image">
+                    <img src="{% static '/images/slider-hm2-1.webp' %}" alt="">
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-6 single-silder-content">
+                <div class="silder-content">
+                    <h4>New</h4>
+                    <h2>top sale</h2>
+                    <h6>new collection 2022</h6>
+                    <div class="slider-btn">
+                        <a class="btn-hover" href="{% url 'shop' %}">shopping now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner end -->
+<!-- feature-area start -->
+<div class="feature-area pt-4 ">
+    <div class="container">
+        <div class="row justify-content-between" id="rotate">
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-1.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>FREE SHIPPING</h5>
+                        <p>Free shipping on all order</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-2.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>ONLINE SUPPORT</h5>
+                        <p>Online support 24 hours a day</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-3.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>MONEY RETURN</h5>
+                        <p>Back guarantee under 5 days</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-1.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>FREE SHIPPING</h5>
+                        <p>Free shipping on all order</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-2.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>ONLINE SUPPORT</h5>
+                        <p>Online support 24 hours a day</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 block">
+                <div class="feature-wrap">
+                    <div class="feature-image me-3">
+                        <img src="{% static '/images/feature-3.webp' %}" alt="">
+                    </div>
+                    <div class="feature-content">
+                        <h5>MONEY RETURN</h5>
+                        <p>Back guarantee under 5 days</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- categories product-area start -->
+<section class="hot-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h2 class="text-capitalize fw-bold">all categories</h2>
+                    <p>This category includes clothing, shoes, jewelry, and other fashion accessories.</p>
+                </div>
+            </div>
+            <div class="row product-list g-4" id="categories_silder">
+                {% for category in categories %}
+                {% if forloop.counter <= 5 %} <div class="col-md-3 col-lg-3 m-3">
+                    <div class="card">
+                        <div class="card-img">
+                            <a href="{% url 'catalog' url=category.url %}"><img src="/media/{{category.pic}}" alt=""></a>
+                        </div>
+                        <div class="card-body products-content products-content-padding text-center">
+                            <h4><a href="{% url 'catalog' url=category.url %}">{{category.name}}</a></h4>
+                            <div class="product-desc mb-2">
+                                {{category.description}}
+                            </div>
+                            <div class="product-prize mt-3">
+                                <a href="{% url 'catalog' url=category.url %}" class="header-hover">View</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            {% endif %}
+            {% endfor%}
+        </div>
+    </div>
+</section>
+<!--categories product-area start -->
+<!-- banner-2 start -->
+<section class="banner-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6  animatable fadeinleft">
+                <div class="banner">
+                    <div class="banner-wrap">
+                        <a href="{% url 'accessories' %}">
+                            <img src="{% static '/images/banner_1.webp' %}" alt="">
+                        </a>
+                        <div class="content">
+                            <h3>Fashionable<br> ladies Bag</h3>
+                            <a href="{% url 'accessories' %}">shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 animatable fadeinright">
+                <div class="banner">
+                    <div class="banner-wrap">
+                        <a href="{% url 'shop' %}">
+                            <img src="{% static '/images/banner_2.webp' %}" alt="">
+                        </a>
+                        <div class="content">
+                            <h3>Dj Fashion<br> Man Shoes</h3>
+                            <a href="{% url 'shop' %}">shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!-------------------------------- banner-2 end--------------------------------- -->
+
+
+
+
+<!-- product list start -->
+<section class="hot-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h2 class="text-capitalize fw-bold">all products</h2>
+                    <p>This includes shirts, pants, lower, and T-shirt, designed for different and styles.</p>
+                </div>
+            </div>
+            <div class="row product-list g-4" id="product_silder">
+                {% for shopping in prd %}
+                {% if forloop.counter <= 5 %} <div class="col-md-3 col-lg-3">
+                    <div class="card">
+                        <div class="card-img">
+                        <a href="/product/{{ shopping.id }}"><img src="/media/{{ shopping.pic2 }}" class="card-img-top" alt="..."></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title "><a href="/product/{{ shopping.id }}">{{ shopping.name }}</a></h5>
+                            <p class="card-text price">
+                                <span class="fs-4 text-danger fw-bold me-2">₹{{ shopping.mrp }}</span>
+                                <strike style="font-size:17px; font-weight: 600;color: #333">₹{{ shopping.sellingprice }}</strike>
+                            </p>
+                            <p class="product-bio">{{ shopping.description }}</p>
+                            <form action="/cart/add/{{shopping.id}}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="quantity" value="1">
+                               <button class="card-hover" >Add to cart</button><br>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+            {% endif %}
+            {% endfor%}
+        </div>
+    </div>
+</section>
+<!-- product list end -->
+<!-- timer section start -->
+<section class="deal-area-img">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="deal-content">
+                    <h3>Sale 30%</h3>
+                    <h2>Big Weekend Sale</h2>
+                    <div class="timer">
+                        <script>(function (d, s, id) { var js, pjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore(js, pjs); }(document, "script", "tickcounter-sdk"));</script>
+                        <a data-type="countdown" data-id="4047685" class="tickcounter"
+                            style="display: block; width: 300px; height: 132px; margin: 0 auto" title="Countdown"
+                            href="//www.tickcounter.com/"></a>
+                    </div>
+                    <div class="button">
+                        <a class="btn-hover" href="{% url 'shop' %}" target="_self">shopping now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!------------------------------ timer secton------------------------ -->
+
+
+<!------------------------- blog area start------ -------------->
+<section class="blog-area">
+    <div class="container">
+        <div class="section-title text-center pb-45">
+            <h2 class="text-capitalize fw-bold">Latest Blog</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+        <div class="row">
+            {%for getblog in blog%}
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-wrap">
+                    <div class="blog-img">
+                        <a href="#">
+                            <img src="/media/{{ getblog.pic }}" alt="">
+                        </a>
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="blog/{{getblog.key}}">{{getblog.name}}</a></h3>
+                        <div class="blog-meta">
+                            <a href="#"><i class="fa-regular fa-user"></i> By Admin</a>
+                            <a href="#"><i class="fa-regular fa-clock"></i> {{ getblog.created_at|date:"D d M, Y" }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+           
+        </div>
+    </div>
+</section>
+<!-- --------------------end--------------------------------- -->
+<!-- video area start -->
+<section class="video-area">
+    <div class="container">
+        <div class="bg-area">
+            <div class="video-content">
+                <h3>Summer 2022</h3>
+                <div class="video-icon">
+                    <a href="https://youtu.be/x7KeNcjBGIY?t=4"><i class="fa-regular fa-circle-play"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- --------------------------------end----------------------- -->
+<!-- company brand logo start-->
+<section class="brand-logo">
+    <div class="container">
+        <div class="row justify-content-between" id="company-brand-logo">
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-1.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-2.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-3.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-4.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-5.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-1.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-2.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-3.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-4.webp' %}" alt="">
+            </div>
+            <div class="col-md-4 col-lg-2 text-center">
+                <img src="{% static '/images/barnd-logo-5.webp' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- --------------------------end--------------------------- -->
+
+
+
+
+
+<!---Bootstrap 5 js-->
+
+<!----------------------------->
+<!--------------end------------->
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#company-brand-logo').slick({
+        dots: false,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: false,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#rotate').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#categories_silder').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#product_silder').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+{% endblock %}

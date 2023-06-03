@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}
+Your Shopping Cart| Thank you
+{% endblock %}
+
+{% block content %}
+<div class="page-heading header-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="h1">Order Placed</h1>
+        <div class="verify">
+          <img src="{% static '/images/verify.png' %}" alt="verify">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="order-placed">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 order-id text-center">
+        <h3 class="page-header">Thank You For Shopping With Us</h3>
+        <p>Your order has been successfully completed. Your order Number is <strong>{{ orderid }}</strong>.</p>
+        <a href="{% url 'shop' %}" class="card-hover my-2">Continue Shopping</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
