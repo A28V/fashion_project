@@ -591,9 +591,9 @@ footer .copyright a:hover{color: #e32222;transition: 1s;}
  /* testimonial-area start */
 /* about us end */
 /* -----------------------------------------------------Terms & conditions --------------------------------*/
-.terms-banner{background: url(../images/terms.jpg)center/cover;height: 300px; box-shadow: inset 0px 0px 0px 500px #1b220075;}
+.terms-banner{background: url(../images/trems\ &\ conditions\ bnner.jpg)top/cover;height: 400px; box-shadow: inset 0px 0px 0px 500px #1b220075;background-position-y: -140px;}
 .terms-heading h1{font-size: 40px;padding: 6rem 0rem; color: #ffffff;text-transform: capitalize;font-weight: 700;text-align: center;}
-.terms-conditons{margin: 3rem 4rem;padding: 20px 0px; border: 1px solid #ddd;background: #b7eaa817;font-size: 13px;}
+.terms-conditons{margin: 3rem 4rem;padding: 20px 0px; border: 1px solid #ddd;background: #b7eaa817;font-size: 13px;} 
 .terms-conditons h2{font-size: 25px;color: #153b03;}
 .terms-conditons h4{font-size: 15px;color: #153b03;}
 /* -------------------------------------------------------Blog detail page --------------------------------------------- */

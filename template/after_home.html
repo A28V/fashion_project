@@ -183,7 +183,7 @@
                 {% if forloop.counter <= 5 %} <div class="col-md-3 col-lg-3">
                     <div class="card">
                         <div class="card-img">
-                        <a href="/product/{{ shopping.id }}"><img src="/media/{{ shopping.pic2 }}" class="card-img-top" alt="..."></a>
+                        <a href="/product/{{ shopping.id }}"><img src="/media/{{ shopping.pic1 }}" class="card-img-top" alt="..."></a>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title "><a href="/product/{{ shopping.id }}">{{ shopping.name }}</a></h5>
@@ -191,7 +191,7 @@
                                 <span class="fs-4 text-danger fw-bold me-2">₹{{ shopping.mrp }}</span>
                                 <strike style="font-size:17px; font-weight: 600;color: #333">₹{{ shopping.sellingprice }}</strike>
                             </p>
-                            <p class="product-bio">{{ shopping.description }}</p>
+                            <p class="product-bio">{{ shopping.description | safe }}</p>
                             <form action="/cart/add/{{shopping.id}}" method="post">
                                 {% csrf_token %}
                                 <input type="hidden" name="quantity" value="1">

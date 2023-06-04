@@ -37,9 +37,9 @@
                         <a href="{% url 'cart_detail' %}"><i class="fa-solid fa-cart-shopping fs-5  text-dark"></i>
                             {% with total_items=cart|length %}
                             {% if cart|length > 0 %}
-                            {{ total_items }}
+                            <span>{{ total_items }}</span>
                             {% else %}
-                            0
+                            <span>0</span>
                             {% endif %}
                             {% endwith %}
                         </a>
