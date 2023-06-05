@@ -88,7 +88,7 @@ header .navbar .logo{width: 150px;}
 header .navbar .logo img{width: 100%;}
 header .navbar .links {align-items: center;}
 header .navbar .links .cart-wrap a {position: relative;font-size: 25px;color: #000000;margin-right: 10px;}
-header .navbar .links .cart-wrap a span {position: absolute;font-size: 11px;height: 18px;line-height: 17px;color: #fff;display: block;top: -8px;right: -5px;min-width: 18px;text-align: center;padding: 0;border-radius: 50%;background: #e32222;font-weight: bold;}
+header .navbar .links .cart-wrap a span {position: absolute;font-size: 11px;height: 18px;line-height: 17px;color: #fff;display: block;top: -9px;right: -11px;min-width: 18px;text-align: center;padding: 0;border-radius: 50%;background: #e32222;font-weight: bold;}
 header .navbar .links .btn{background-color: #e32222;color: #fff;border: none;font-size: 15px;font-weight: 500;text-transform: capitalize;}
 header .navbar .links .btn:hover{background-color: #a10404;color: #ffffff;border: none;}
 /* ----------------------------------end---------------------------------- */
@@ -688,7 +688,7 @@ footer .copyright a:hover{color: #e32222;transition: 1s;}
   #nav-contact .review-wrapper .single-view .review-content::before{top: 80px;}
   #nav-contact .review-wrapper .single-view .review-content .review-wrap {padding-bottom: 7px;font-size: 7px;}
   #nav-contact .review-wrapper .single-view .review-content p{font-size: 13px;}
-  .main-block .product-detail .product-img-block .product-imga .product-badge{top: 20px !important;left: 1rem!important;}
+  .main-block .product-detail .product-img-block .product-imga .product-badge{top: 8px !important;left: 1rem !important;}
   .review-block .img-block{width: 120%;}
   .review-block .img-block img{width: 100%;}
   /* product detail page end */
@@ -797,6 +797,7 @@ footer .copyright a:hover{color: #e32222;transition: 1s;}
  .main-block .col-md-8 .card-body .card-text .text-dark{font-size: 30px;}
  .product-block .card .card-body i{font-size: 20px;}
  .main-block .col-md-8 .card-body .prize span{font-size: 20px;}
+ .main-block .product-detail .product-img-block .product-imga .product-badge{position: absolute;text-align: center;color: #fff;background-color: #e32222;top: 42px !important;left: 6px !important;line-height: 1;padding: 3px 10px 5px;font-size: 15px;font-weight: 500;text-transform: capitalize;}
   /* contact us page start */
   .contact-banner{height: 140px;}
   .contact-form .contact-form-heading h2{font-size: 27px;margin-bottom: 0rem;padding-bottom: 2rem;color: #e32222;}
@@ -918,4 +919,4 @@ label{display: none;}
 
 
 
-
+.theme-toggle{display: none;}
